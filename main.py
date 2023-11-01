@@ -14,28 +14,54 @@ def main():
     resultado = None
 
     real = request.args.get('real')
-    segunda = request.args.get('moeda')
+    moeda = request.args.get('moeda')
 
-    if real and segunda:
+    if real and moeda:
         real = float(real)
+        moeda = moeda.capitalize()
 
-        if ((segunda == 'Dolar') or (segunda == 'dolar')):
+        # Checo para ver se foi digitada uma opção válida
+
+        if moeda == 'Dolar':
             # Acessando o website
             page = requests.get(
                 "https://www.google.com/search?q=dolar&oq=dolar&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABNIBCTIyNzdqMGoxNagCALACAA&sourceid=chrome&ie=UTF-8",
                 headers=headers)
             soup = BeautifulSoup(page.content, 'html.parser')
-            valor_dolar = soup.find_all("span", class_="DFlfde SwHCTb")[0]
-            moeda = valor_dolar.text
-            moeda = moeda.replace(',', '.')
-            moeda = float(moeda)
 
-            resultado = round((real * moeda), 3)
+        elif moeda == 'Euro':
+            page = requests.get(
+                "https://www.google.com/search?q=euro&sca_esv=575718203&sxsrf=AM9HkKnWg3K76hgvQSf8zj5eitfIL69XJw%3A1698046617170&ei=mSI2ZeCDCs685OUPhqCmoAo&ved=0ahUKEwigtLbL1IuCAxVOHrkGHQaQCaQQ4dUDCBA&uact=5&oq=euro&gs_lp=Egxnd3Mtd2l6LXNlcnAiBGV1cm8yCBAAGIoFGJECMggQABiKBRiRAjIHEC4YigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEC4YigUYQzIFEAAYgAQyBRAAGIAEMgUQLhiABDIFEAAYgARIrBRQAFj4A3AAeAGQAQCYAd0BoAHXBaoBBTAuMy4xuAEDyAEA-AEBwgIEECMYJ8ICBxAjGIoFGCfCAg4QLhiKBRjHARjRAxiRAsICCxAuGIAEGMcBGNEDwgIIEC4YigUYkQLiAwQYACBBiAYB&sclient=gws-wiz-serp",
+                headers=headers)
+            soup = BeautifulSoup(page.content, 'html.parser')
 
-            # texto = str(real) + "R$ valem " + str(resultado) + "$"
+        elif moeda == 'Peso':
+            page = requests.get(
+                "https://www.google.com/search?q=moedaargentina&sca_esv=575718203&sxsrf=AM9HkKl-qbbCSpz0kT2UALGk1lj033xz_A%3A1698046865456&ei=kSM2Zey-G-j35OUPuuEC&ved=0ahUKEwisy-jB1YuCAxXoO7kGHbqwAAAQ4dUDCBA&uact=5&oq=moedaargentina&gs_lp=Egxnd3Mtd2l6LXNlcnAiDm1vZWRhYXJnZW50aW5hMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgYQABgeGA0yBhAAGB4YDUj7HlDdEFjNGnABeAGQAQCYAdwBoAH9CaoBBTAuOC4xuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICChAAGIoFGLADGEPCAgcQIxixAhgnwgIKEAAYywEYgAQYCuIDBBgAIEGIBgGQBgk&sclient=gws-wiz-serp",
+                headers=headers)
+            soup = BeautifulSoup(page.content, 'html.parser')
+
+        elif moeda == 'Yuan':
+            page = requests.get(
+                "https://www.google.com/search?q=moeda+da+china&sca_esv=575718203&sxsrf=AM9HkKnbfmTba0HMFi5j-rDxkgBiBo57rg%3A1698046758104&ei=JiM2ZcT9BcHE5OUP24uYoAY&ved=0ahUKEwjEqNCO1YuCAxVBIrkGHdsFBmQQ4dUDCBA&uact=5&oq=moeda+da+china&gs_lp=Egxnd3Mtd2l6LXNlcnAiDm1vZWRhIGRhIGNoaW5hMg0QABjLARiABBhGGIICMggQABjLARiABDIIEAAYywEYgAQyCBAAGMsBGIAEMggQABjLARiABDIIEAAYywEYgAQyCBAAGMsBGIAEMggQABjLARiABDIIEAAYywEYgAQyCBAAGMsBGIAESNqIAVD_bljiggFwAngBkAEAmAHjAaABnxCqAQYwLjEyLjK4AQPIAQD4AQHCAgoQABhHGNYEGLADwgIKEAAYigUYsAMYQ8ICBBAjGCfCAg0QLhjHARjRAxiKBRgnwgIHEAAYigUYQ8ICBRAAGIAEwgIFEC4YgATCAgcQLhiKBRhDwgIWEC4YigUYQxiXBRjcBBjeBBjfBNgBAcICChAAGIAEGBQYhwLiAwQYACBBiAYBkAYKugYGCAEQARgU&sclient=gws-wiz-serp",
+                headers=headers)
+            soup = BeautifulSoup(page.content, 'html.parser')
+        else:
+            cotacao = None
+
+        if cotacao != None:
+            valor = soup.find_all("span", class_="DFlfde SwHCTb")[0]
+            cotacao = valor.text
+            cotacao = cotacao.replace(',', '.')
+            cotacao = float(cotacao)
+
+            resultado = round((real * cotacao), 3)
+        else:
+            resultado = "Moeda inválida"
 
     return render_template('index.html',
-                           resultado=resultado, media="$")
+                           simbolo="R$", resultado=resultado)
+
 
 if __name__ == '__main__':
     app.run(debug=True)  # Executa a aplicação
