@@ -12,6 +12,7 @@ app = Flask(__name__)  # Inicializa a aplicação
 @app.route('/')  # Nova rota
 def main():
     resultado = None
+    mensagem = None
     cotacao = 0
 
     real = request.args.get('real')
@@ -53,11 +54,11 @@ def main():
             cotacao = valor.text
             cotacao = cotacao.replace(',', '.')
             cotacao = float(cotacao)
-
             resultado = round((real * cotacao), 3)
         else:
-            resultado = "Moeda inválida"
+            resultado = "Esta moeda é inválida ou não está disponível para conversão"
 
+        print(mensagem)
     return render_template('index.html',
                            simbolo="R$", resultado=resultado)
 
