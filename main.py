@@ -12,6 +12,7 @@ app = Flask(__name__)  # Inicializa a aplicação
 @app.route('/')  # Nova rota
 def main():
     resultado = None
+    cotacao = 0
 
     real = request.args.get('real')
     moeda = request.args.get('moeda')
@@ -19,8 +20,6 @@ def main():
     if real and moeda:
         real = float(real)
         moeda = moeda.capitalize()
-
-        # Checo para ver se foi digitada uma opção válida
 
         if moeda == 'Dolar':
             # Acessando o website
@@ -48,6 +47,8 @@ def main():
             soup = BeautifulSoup(page.content, 'html.parser')
         else:
             cotacao = None
+
+        print(cotacao)
 
         if cotacao != None:
             valor = soup.find_all("span", class_="DFlfde SwHCTb")[0]
