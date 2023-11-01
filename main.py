@@ -48,8 +48,6 @@ def main():
         else:
             cotacao = None
 
-        print(cotacao)
-
         if cotacao != None:
             valor = soup.find_all("span", class_="DFlfde SwHCTb")[0]
             cotacao = valor.text
