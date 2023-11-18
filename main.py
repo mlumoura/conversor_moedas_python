@@ -56,7 +56,6 @@ def main():
             cotacao = cotacao.replace(',', '.')
             cotacao = float(cotacao)
             valor_convertido = round((real * cotacao), 3)
-
             resultado = f"""O valor R${real}0 convertido é: {valor_convertido} {moeda} (Cotação ={cotacao})"""
         else:
             resultado = "Esta moeda é inválida ou não está disponível para conversão"
