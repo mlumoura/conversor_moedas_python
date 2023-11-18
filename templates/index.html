@@ -9,7 +9,7 @@
 <div class="container d-flex h-100">
     <div class="w-100 align-self-center">
         <div class="row justify-content-center mb-3">
-            <h1>Conversor de Moedas</h1>
+            <h1>Bem-vindo ao JuLu Conversor de Moedas!</h1>
         </div>
 
         <div class="row justify-content-center">
@@ -31,12 +31,20 @@
 
         {% if resultado %}
         <hr class="my-4">
+
         <div class="row justify-content-center">
-            <h3>{{simbolo}} {{resultado}}</h3>
+            <h3>{{resultado}}</h3>
         </div>
+
         {% endif %}
 
     </div>
 </div>
 </body>
+<footer>
+    {% block footer %}Programa Match IBM @2023 - Feito por:
+    <a href="https://github.com/jumozaga"><i class="fa fa-github"></i> Juliana</a>
+    <a href="https://github.com/mlumoura"> <i class="fa fa-github"></i> Maria Luiza</a>
+    {% endblock %}
+</footer>
 </html>

@@ -14,6 +14,7 @@ def main():
     resultado = None
     mensagem = None
     cotacao = 0
+    valor_convertido = 0
 
     real = request.args.get('real')
     moeda = request.args.get('moeda')
@@ -54,13 +55,13 @@ def main():
             cotacao = valor.text
             cotacao = cotacao.replace(',', '.')
             cotacao = float(cotacao)
-            resultado = round((real * cotacao), 3)
+            valor_convertido = round((real * cotacao), 3)
+
+            resultado = f"""O valor R${real}0 convertido é: {valor_convertido} {moeda} (Cotação ={cotacao})"""
         else:
             resultado = "Esta moeda é inválida ou não está disponível para conversão"
 
-        print(mensagem)
-    return render_template('index.html',
-                           simbolo="R$", resultado=resultado)
+    return render_template('index.html', resultado=resultado)
 
 
 if __name__ == '__main__':
