@@ -1,4 +1,8 @@
-# conversor_moedas_python
+<h2>Project for the 2nd Module of Match IBM - class of August/2023</h2></br>
 
-Aplicativo desenvolvido em Python - Flask como projeto final do Módulo 2 do Match IBM
 
+<h1 align="center"> Hello! Welcome to our Currency Converter </h1>
+<h2 align="center"> Python, Flask, Jinja2, Web Scrappy with Beautiful Soup 4 HTML/CSS library </h2><br>
+
+
+    
