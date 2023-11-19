@@ -1,53 +1,41 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Conversor de Moedas</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <title>{% block title %}Conversor de Moedas{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://kit.fontawesome.com/506a039e28.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container d-flex h-100">
-    <div class="w-100 align-self-center">
-        <div class="row justify-content-center mb-3">
-            <h1>Bem-vindo ao JuLu Conversor de Moedas!</h1>
-        </div>
+  <h1>Bem-vindo ao JuLu Conversor de Moedas!</h1>
 
-        <div class="row justify-content-center">
-            <form method="get">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <input class="form-control" type="text" name="real" placeholder="Valor em Reais(R$)">
-                    </div>
-                    <div class="col-md-6">
-                        <input class="form-control" type="text" name="moeda" placeholder="Converter para...">
-                    </div>
-                </div>
+  {% block content %}
+    <form method="get">
+        <label for="real">Valor:</label>
+        <input type="number" name="real" step="0.01" required placeholder="Valor em Reais(R$)">
+        <label for="moeda">Moeda Destino:</label>
+        <input type="text" name="moeda" required placeholder="Converter para...">
 
-                <div class="form-row justify-content-center mt-4">
-                    <input class="btn btn-primary" type="submit" value="Enviar">
-                </div>
-            </form>
-        </div>
+        <button type="submit">Converter</button>
+    </form>
+  {% endblock %}
 
-        {% if resultado %}
-        <hr class="my-4">
+  {% if resultado %}
 
-        <div class="row justify-content-center">
-            <h3>{{resultado}}</h3>
-        </div>
-
-        {% endif %}
-
+    <div id="resp" action="#">
+        <h3>{{resultado}}</h3>
     </div>
-</div>
 
-<footer>
-    {% block footer %}Programa Match IBM @2023 - Feito por:
-    <a href="https://github.com/jumozaga"><i class="fa fa-github"></i> Juliana</a>
-    <a href="https://github.com/mlumoura"> <i class="fa fa-github"></i> Maria Luiza</a>
-    {% endblock %}
-</footer>
+  {% endif %}
+
+  <footer>
+      {% block footer %}Programa Match IBM @2023 - Feito por:
+      <a href="https://github.com/jumozaga"><i class="fa fa-github"></i> Juliana</a>
+      <a href="https://github.com/mlumoura"> <i class="fa fa-github"></i> Maria Luiza</a>
+      {% endblock %}
+  </footer>
 </body>
-
 </html>
+
+
+
+

@@ -36,7 +36,7 @@ def main():
                 headers=headers)
             soup = BeautifulSoup(page.content, 'html.parser')
 
-        elif moeda == 'Peso':
+        elif moeda == 'Peso argentino':
             page = requests.get(
                 "https://www.google.com/search?q=moedaargentina&sca_esv=575718203&sxsrf=AM9HkKl-qbbCSpz0kT2UALGk1lj033xz_A%3A1698046865456&ei=kSM2Zey-G-j35OUPuuEC&ved=0ahUKEwisy-jB1YuCAxXoO7kGHbqwAAAQ4dUDCBA&uact=5&oq=moedaargentina&gs_lp=Egxnd3Mtd2l6LXNlcnAiDm1vZWRhYXJnZW50aW5hMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgYQABgeGA0yBhAAGB4YDUj7HlDdEFjNGnABeAGQAQCYAdwBoAH9CaoBBTAuOC4xuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICChAAGIoFGLADGEPCAgcQIxixAhgnwgIKEAAYywEYgAQYCuIDBBgAIEGIBgGQBgk&sclient=gws-wiz-serp",
                 headers=headers)
