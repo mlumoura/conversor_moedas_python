@@ -1,0 +1,85 @@
+body {
+    background-color: #333;
+    color: rgb(245, 245, 220);
+    display: flex;
+    min-height: 85vh;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    font-size:20px;
+    text-align: center;
+}
+
+h1{
+    color: rgb(192, 172, 172);
+}
+
+.container {
+    display: flex;
+   }
+
+form, section {
+    background-color:rgb(30, 126, 46);
+    border-radius: 6px;
+    width: 410px;
+    height: 200px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+}
+
+label{
+    display: block;
+    margin-top: 6px;
+    margin-bottom: 5px;
+}
+
+input, button, label{
+    font-size: 20px;
+    }
+
+input, button{
+    padding: 5px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #333;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+   }
+footer {
+    background-color: rgba(255, 228, 196, 0.082);
+    color: rgb(189, 192, 189);
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+ }
+
+
+
+ #resp{
+    background-color:rgb(30, 126, 46);
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    margin-top: 50px;
+    border-radius: 6px;
+    padding: 5%;
+    color: rgb(245, 248, 244);
+}
