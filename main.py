@@ -8,7 +8,6 @@ headers = {
 
 app = Flask(__name__)  # Inicializa a aplicação
 
-
 @app.route('/')  # Nova rota
 def main():
     resultado = None
