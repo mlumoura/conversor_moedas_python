@@ -1,4 +1,4 @@
-<h2>Project for the 2nd Module of Match IBM - class of August/2023</h2></br>
+<h2 align="center">Project for the 2nd Module of Match IBM - class of August/2023</h2>
 
 
 <h1 align="center"> Hello! Welcome to our Currency Converter </h1>
