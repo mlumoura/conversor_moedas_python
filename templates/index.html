@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% block title %}Conversor de Moedas{% endblock %}</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-  <script src="https://kit.fontawesome.com/506a039e28.js" crossorigin="anonymous"></script>
+    <title>{% block title %}Conversor de Moedas{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/506a039e28.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>Bem-vindo ao JuLu Conversor de Moedas!</h1>
+<h1>Bem-vindo ao JuLu Conversor de Moedas!</h1>
 
-  {% block content %}
-    <form method="get">
-        <label for="real">Valor:</label>
-        <input type="number" name="real" step="0.01" required placeholder="Valor em Reais(R$)">
-        <label for="moeda">Moeda Destino:</label>
-        <input type="text" name="moeda" required placeholder="Converter para...">
+{% block content %}
+<form method="get">
+    <label for="real">Valor:</label>
+    <input type="number" name="real" step="0.01" required placeholder="Valor em Reais(R$)">
+    <label for="moeda">Moeda Destino:</label>
+    <input type="text" name="moeda" required placeholder="Ex.: euro, dolar, pound sterling, peso argentino, yan, yuan">
 
-        <button type="submit">Converter</button>
-    </form>
-  {% endblock %}
+    <button type="submit">Converter</button>
+</form>
+{% endblock %}
 
-  {% if resultado %}
+{% if resultado %}
 
-    <div id="resp" action="#">
-        <h3>{{resultado}}</h3>
-    </div>
+<div id="resp" action="#">
+    <h3>{{resultado}}</h3>
+</div>
 
-  {% endif %}
+{% endif %}
 
-  <footer>
-      {% block footer %}Programa Match IBM @2023 - Feito por:
-      <a href="https://github.com/jumozaga"><i class="fa fa-github"></i> Juliana</a>
-      <a href="https://github.com/mlumoura"> <i class="fa fa-github"></i> Maria Luiza</a>
-      {% endblock %}
-  </footer>
+<footer>
+    {% block footer %}Programa Match IBM @2023 - Feito por:
+    <a href="https://github.com/jumozaga"><i class="fa fa-github"></i> Juliana</a>
+    <a href="https://github.com/mlumoura"> <i class="fa fa-github"></i> Maria Luiza</a>
+    {% endblock %}
+</footer>
 </body>
 </html>
 
