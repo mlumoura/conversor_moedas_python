@@ -1,0 +1,6 @@
+venv
+.venv
+mlumoura
+__pycache__
+.idea
+.vscode
