@@ -31,8 +31,6 @@ def main():
                 headers=headers)
             soup = BeautifulSoup(page.content, 'html.parser')
 
-            print(moeda)
-            
         elif moeda == 'euro':
             page = requests.get(
                 "https://www.google.com/search?q=euro&sca_esv=575718203&sxsrf=AM9HkKnWg3K76hgvQSf8zj5eitfIL69XJw%3A1698046617170&ei=mSI2ZeCDCs685OUPhqCmoAo&ved=0ahUKEwigtLbL1IuCAxVOHrkGHQaQCaQQ4dUDCBA&uact=5&oq=euro&gs_lp=Egxnd3Mtd2l6LXNlcnAiBGV1cm8yCBAAGIoFGJECMggQABiKBRiRAjIHEC4YigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEC4YigUYQzIFEAAYgAQyBRAAGIAEMgUQLhiABDIFEAAYgARIrBRQAFj4A3AAeAGQAQCYAd0BoAHXBaoBBTAuMy4xuAEDyAEA-AEBwgIEECMYJ8ICBxAjGIoFGCfCAg4QLhiKBRjHARjRAxiRAsICCxAuGIAEGMcBGNEDwgIIEC4YigUYkQLiAwQYACBBiAYB&sclient=gws-wiz-serp",
@@ -55,9 +53,9 @@ def main():
 
         if cotacao != None:
             valor = soup.find_all("span", class_="DFlfde SwHCTb")[0]
-            print(valor)
+
             cotacao = valor.text
-            print(cotacao)
+    
             cotacao = cotacao.replace(',', '.')
             cotacao = float(cotacao)
             valor_convertido = round((real * cotacao), 3)
