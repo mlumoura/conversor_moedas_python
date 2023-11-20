@@ -22,28 +22,30 @@ def main():
 
     if real and moeda:
         real = float(real)
-        moeda = moeda.capitalize()
+        moeda = moeda.lower()
 
-        if moeda == 'Dolar':
+        if moeda == 'dolar':
             # Acessando o website
             page = requests.get(
                 "https://www.google.com/search?q=dolar&oq=dolar&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABNIBCTIyNzdqMGoxNagCALACAA&sourceid=chrome&ie=UTF-8",
                 headers=headers)
             soup = BeautifulSoup(page.content, 'html.parser')
 
-        elif moeda == 'Euro':
+            print(moeda)
+            
+        elif moeda == 'euro':
             page = requests.get(
                 "https://www.google.com/search?q=euro&sca_esv=575718203&sxsrf=AM9HkKnWg3K76hgvQSf8zj5eitfIL69XJw%3A1698046617170&ei=mSI2ZeCDCs685OUPhqCmoAo&ved=0ahUKEwigtLbL1IuCAxVOHrkGHQaQCaQQ4dUDCBA&uact=5&oq=euro&gs_lp=Egxnd3Mtd2l6LXNlcnAiBGV1cm8yCBAAGIoFGJECMggQABiKBRiRAjIHEC4YigUYQzIHEAAYigUYQzIHEAAYigUYQzIHEC4YigUYQzIFEAAYgAQyBRAAGIAEMgUQLhiABDIFEAAYgARIrBRQAFj4A3AAeAGQAQCYAd0BoAHXBaoBBTAuMy4xuAEDyAEA-AEBwgIEECMYJ8ICBxAjGIoFGCfCAg4QLhiKBRjHARjRAxiRAsICCxAuGIAEGMcBGNEDwgIIEC4YigUYkQLiAwQYACBBiAYB&sclient=gws-wiz-serp",
                 headers=headers)
             soup = BeautifulSoup(page.content, 'html.parser')
 
-        elif moeda == 'Peso argentino':
+        elif moeda == 'peso argentino':
             page = requests.get(
                 "https://www.google.com/search?q=moedaargentina&sca_esv=575718203&sxsrf=AM9HkKl-qbbCSpz0kT2UALGk1lj033xz_A%3A1698046865456&ei=kSM2Zey-G-j35OUPuuEC&ved=0ahUKEwisy-jB1YuCAxXoO7kGHbqwAAAQ4dUDCBA&uact=5&oq=moedaargentina&gs_lp=Egxnd3Mtd2l6LXNlcnAiDm1vZWRhYXJnZW50aW5hMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgcQABgNGIAEMgYQABgeGA0yBhAAGB4YDUj7HlDdEFjNGnABeAGQAQCYAdwBoAH9CaoBBTAuOC4xuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICChAAGIoFGLADGEPCAgcQIxixAhgnwgIKEAAYywEYgAQYCuIDBBgAIEGIBgGQBgk&sclient=gws-wiz-serp",
                 headers=headers)
             soup = BeautifulSoup(page.content, 'html.parser')
 
-        elif moeda == 'Yuan':
+        elif moeda == 'yuan':
             page = requests.get(
                 "https://www.google.com/search?q=moeda+da+china&sca_esv=575718203&sxsrf=AM9HkKnbfmTba0HMFi5j-rDxkgBiBo57rg%3A1698046758104&ei=JiM2ZcT9BcHE5OUP24uYoAY&ved=0ahUKEwjEqNCO1YuCAxVBIrkGHdsFBmQQ4dUDCBA&uact=5&oq=moeda+da+china&gs_lp=Egxnd3Mtd2l6LXNlcnAiDm1vZWRhIGRhIGNoaW5hMg0QABjLARiABBhGGIICMggQABjLARiABDIIEAAYywEYgAQyCBAAGMsBGIAEMggQABjLARiABDIIEAAYywEYgAQyCBAAGMsBGIAEMggQABjLARiABDIIEAAYywEYgAQyCBAAGMsBGIAESNqIAVD_bljiggFwAngBkAEAmAHjAaABnxCqAQYwLjEyLjK4AQPIAQD4AQHCAgoQABhHGNYEGLADwgIKEAAYigUYsAMYQ8ICBBAjGCfCAg0QLhjHARjRAxiKBRgnwgIHEAAYigUYQ8ICBRAAGIAEwgIFEC4YgATCAgcQLhiKBRhDwgIWEC4YigUYQxiXBRjcBBjeBBjfBNgBAcICChAAGIAEGBQYhwLiAwQYACBBiAYBkAYKugYGCAEQARgU&sclient=gws-wiz-serp",
                 headers=headers)
@@ -53,7 +55,9 @@ def main():
 
         if cotacao != None:
             valor = soup.find_all("span", class_="DFlfde SwHCTb")[0]
+            print(valor)
             cotacao = valor.text
+            print(cotacao)
             cotacao = cotacao.replace(',', '.')
             cotacao = float(cotacao)
             valor_convertido = round((real * cotacao), 3)
