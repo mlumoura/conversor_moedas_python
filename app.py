@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 from flask import Flask, request, render_template  # Importa as bibliotecas
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'}
+    'User-Agent':
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36'}
 
 app = Flask(__name__)  # Inicializa a aplicação
 
@@ -12,7 +13,6 @@ app = Flask(__name__)  # Inicializa a aplicação
 @app.route('/')  # Nova rota
 def main():
     resultado = None
-    mensagem = None
     cotacao = 0
     valor_convertido = 0
 
