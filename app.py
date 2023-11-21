@@ -35,7 +35,6 @@ def main():
 
             page = requests.get(
                 f"""https://www.google.com/finance/quote/{sigla}-BRL""", headers=headers)
-            # f"""https://www.google.com/search?q={moeda}&oq={moeda}&sclient=gws-wiz-serp&sourceid=chrome&ie=UTF-8""",headers=headers)
 
             soup = BeautifulSoup(page.content, 'html.parser')
 
