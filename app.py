@@ -18,14 +18,30 @@ def main():
 
     def cotacao(moeda):
         # Lista das moedas disponíveis para apurar cotação
-        moedas = ['dolar', 'euro', 'koruna', 'peso argentino', 'peso chileno', 'pound sterling', 'yuan', 'yen']
+        # 'dolar-USD', 'euro-EUR', 'peso argentino-ARS', 'peso chileno-CLP', 'pound sterling-GBP','yuan-CNY', 'iene-JPY'
+
+        moedas = ['dolar', 'euro', 'libra esterlina', 'peso argentino', 'peso chileno', 'pound sterling', 'yuan',
+                  'iene']
+
         if moeda in moedas:
+            if moeda == 'dolar': sigla = 'USD'
+            if moeda == 'euro': sigla = 'EUR'
+            if moeda == 'peso argentino': sigla = 'ARS'
+            if moeda == 'peso chileno': sigla = 'CLP'
+            if moeda == 'pound sterling': sigla = 'GBP'
+            if moeda == 'libra esterlina': sigla = 'GBP'
+            if moeda == 'yuan': sigla = 'CNY'
+            if moeda == 'iene': sigla = 'JPY'
+
             page = requests.get(
-                f"""https://www.google.com/search?q={moeda}&oq={moeda}&sclient=gws-wiz-serp&sourceid=chrome&ie=UTF-8""",
-                headers=headers)
+                f"""https://www.google.com/finance/quote/{sigla}-BRL""", headers=headers)
+            # f"""https://www.google.com/search?q={moeda}&oq={moeda}&sclient=gws-wiz-serp&sourceid=chrome&ie=UTF-8""",headers=headers)
+
             soup = BeautifulSoup(page.content, 'html.parser')
 
-            valor = soup.find_all("span", class_="DFlfde SwHCTb")[0]
+            # valor = soup.find_all("span", class_="DFlfde SwHCTb")[0]
+            valor = soup.find_all("div", class_="YMlKec fxKbKc")[0]
+
             cotacao = valor.text
             cotacao = cotacao.replace(',', '.')
             cotacao = float(cotacao)
