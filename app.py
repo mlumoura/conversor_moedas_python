@@ -17,22 +17,22 @@ def main():
     valor_convertido = 0
 
     def cotacao(moeda):
-        # Lista das moedas disponíveis para apurar cotação
-        # moedas_sigla = [('dolar', 'USD'), ('euro', 'EUR'), ('peso argentino', 'ARS'), ('peso chileno', 'CLP'),
-        #                 ('pound sterling', 'GBP'),('yuan', 'CNY'), ('iene', 'JPY')]
 
         moedas = ['dolar', 'euro', 'libra esterlina', 'peso argentino', 'peso chileno', 'pound sterling', 'yuan',
                   'iene']
 
         if moeda in moedas:
-            if moeda == 'dolar': sigla = 'USD'
-            if moeda == 'euro': sigla = 'EUR'
-            if moeda == 'peso argentino': sigla = 'ARS'
-            if moeda == 'peso chileno': sigla = 'CLP'
-            if moeda == 'pound sterling': sigla = 'GBP'
-            if moeda == 'libra esterlina': sigla = 'GBP'
-            if moeda == 'yuan': sigla = 'CNY'
-            if moeda == 'iene': sigla = 'JPY'
+
+            # Lista das moedas disponíveis para apurar cotação
+            moedas_sigla = [('dolar', 'USD'), ('euro', 'EUR'), ('peso argentino', 'ARS'), ('peso chileno', 'CLP'),
+                            ('pound sterling', 'GBP'), ('libra esterlina', 'GBP'), ('yuan', 'CNY'), ('iene', 'JPY')]
+
+            #  Transformando em dicionário
+            moedas_sigla = dict(moedas_sigla)
+
+            # Obtenho a respectiva sigla
+
+            sigla = (moedas_sigla[moeda])
 
             page = requests.get(
                 f"""https://www.google.com/finance/quote/{sigla}-BRL""", headers=headers)
