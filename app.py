@@ -18,7 +18,8 @@ def main():
 
     def cotacao(moeda):
         # Lista das moedas disponíveis para apurar cotação
-        # 'dolar-USD', 'euro-EUR', 'peso argentino-ARS', 'peso chileno-CLP', 'pound sterling-GBP','yuan-CNY', 'iene-JPY'
+        # [('dolar', 'USD'), ('euro','EUR'), ('peso argentino', 'ARS'), ('peso chileno', 'CLP'), ('pound sterling', 'GBP'),
+        # ('yuan', CNY'), ('iene', JPY')]
 
         moedas = ['dolar', 'euro', 'libra esterlina', 'peso argentino', 'peso chileno', 'pound sterling', 'yuan',
                   'iene']
