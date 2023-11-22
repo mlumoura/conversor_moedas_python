@@ -17,22 +17,12 @@ def main():
     valor_convertido = 0
 
     def cotacao(moeda):
+         # Dicionário com as siglas das moedas disponíveis para apurar cotação
+        moedas = {'dolar': 'USD', 'euro': 'EUR', 'peso argentino': 'ARS', 'peso chileno': 'CLP', 'pound sterling': 'GBP', 'libra esterlina': 'GBP', 'yuan': 'CNY', 'iene': 'JPY'}
 
-        moedas = ['dolar', 'euro', 'libra esterlina', 'peso argentino', 'peso chileno', 'pound sterling', 'yuan',
-                  'iene']
-
-        if moeda in moedas:
-
-            # Lista das moedas disponíveis para apurar cotação
-            moedas_sigla = [('dolar', 'USD'), ('euro', 'EUR'), ('peso argentino', 'ARS'), ('peso chileno', 'CLP'),
-                            ('pound sterling', 'GBP'), ('libra esterlina', 'GBP'), ('yuan', 'CNY'), ('iene', 'JPY')]
-
-            #  Transformando em dicionário
-            moedas_sigla = dict(moedas_sigla)
-
+        if moeda in moedas: 
             # Obtenho a respectiva sigla
-
-            sigla = (moedas_sigla[moeda])
+            sigla = moedas[moeda]
 
             page = requests.get(
                 f"""https://www.google.com/finance/quote/{sigla}-BRL""", headers=headers)
@@ -45,8 +35,8 @@ def main():
             cotacao = valor.text
             cotacao = cotacao.replace(',', '.')
             cotacao = float(cotacao)
-            valor_convertido = round((real / cotacao), 3)
-            resultado = f"""O valor R${real} convertido, equivale a {valor_convertido} {moeda} (Cotação = {cotacao})"""
+            valor_convertido = round((real / cotacao), 2) if cotacao >= 1 else round(real * (1/cotacao),2)
+            resultado = f"""O valor de R$ {real} convertido em {moeda.upper()} equivale a {valor_convertido} {sigla} - Cotação = {cotacao}"""
 
             return resultado
         else:

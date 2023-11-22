@@ -4,28 +4,43 @@
     <title>{% block title %}Conversor de Moedas{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://kit.fontawesome.com/506a039e28.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Vina+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Bem-vindo ao JuLu Conversor de Moedas!</h1>
+<menu>   
+    <h1> Bem vindos !!!</h1>  
+ 
+</menu>
+<span>Conversor de Moedas LuJu!</span>
 
 {% block content %}
-<form method="get">
-    <label for="real">Valor:</label>
-    <input type="number" name="real" step="0.01" required placeholder="Valor em Reais(R$)">
-    <label for="moeda">Moeda Destino:</label>
-    <input type="text" name="moeda" required placeholder="Ex.: euro, dolar, pound sterling, peso argentino, yan, yuan">
 
-    <button type="submit">Converter</button>
-</form>
-{% endblock %}
+<div class="container">
+    
+    <form method="get">
+        <label for="real">Valor:</label>
+        <input type="number" name="real" step="0.01" required placeholder="Valor em Reais(R$)">
+        <label for="moeda">Moeda Destino:</label>
+        <input type="text" name="moeda" required placeholder="Ex.: euro, dolar, pound sterling, peso argentino, yan, yuan">
+    
+        <button type="submit">Converter</button>
+    </form>
 
-{% if resultado %}
+    {% if resultado %}
 
-<div id="resp" action="#">
-    <h3>{{resultado}}</h3>
+        <div id="resp" action="#">
+            <h3>{{resultado}}</h3>
+        </div>
+
+    {% endif %}
+    
 </div>
 
-{% endif %}
+{% endblock %}
+
+
 
 <footer>
     {% block footer %}Programa Match IBM @2023 - Feito por:

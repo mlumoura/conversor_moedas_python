@@ -13,18 +13,38 @@ h1{
     color: rgb(192, 172, 172);
 }
 
+img{
+    width: 500px;
+    height: 300px;
+    align-self: center;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    border-radius: 6px;
+
+}
+
 .container {
     display: flex;
-   }
+    flex-direction: row;    
+    gap: 24px;
+    padding: 10%;
+    width: 80%;
+    height: 50%;
+    background-image: url('https://img.freepik.com/fotos-gratis/riqueza-de-pilha-de-moedas-cresce-com-investimento-gerado-por-ia_188544-18520.jpg');
+  background-size: cover; /* Isso fará com que a imagem de fundo cubra todo o elemento body */
+  background-position: center; 
+    /* background-color: aqua; */
 
-form, section {
+}
+
+form, #resp {
     background-color:rgb(30, 126, 46);
     border-radius: 6px;
     width: 410px;
     height: 200px;
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    margin-top: 36px;
+    margin: auto;
     padding: 2%;
 }
 
@@ -56,6 +76,25 @@ a {
     color: inherit;
     text-decoration: none;
    }
+span{
+    font-family: 'Pacifico', cursive;
+    /* font-family: 'Vina Sans', sans-serif; */
+    font-size: 44px;
+    color: rgb(190, 247, 181);
+    letter-spacing: 0.1em;
+}
+menu{
+    background-color: rgba(255, 228, 196, 0.082);
+    color: rgb(189, 192, 189);
+    text-align: center;
+    padding: 10px;   
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 footer {
     background-color: rgba(255, 228, 196, 0.082);
     color: rgb(189, 192, 189);
@@ -72,7 +111,7 @@ footer {
 
 
 
- #resp{
+ /* #resp{
     background-color:rgb(30, 126, 46);
     width: 300px;
     margin-left: auto;
@@ -82,4 +121,4 @@ footer {
     border-radius: 6px;
     padding: 5%;
     color: rgb(245, 248, 244);
-}
+} */
